@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get User Location</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="enterdetails" id="enterdetails">
+      <h1 class="mainheading">Enter Your Details :)</h1>
+      <input
+        type="text"
+        id="name"
+        class="input"
+        placeholder="Enter Your Name"
+      />
+      <input
+        type="number"
+        id="phone"
+        class="input"
+        placeholder="Enter Your Phone Number"
+      />
+      <button type="button" class="button" onclick="useusername()">
+        Submit
+      </button>
+      <div class="alert" id="error">
+        Please Enter a Valid Name and Phone Number
+      </div>
+    </div>
+
+    <div class="container" id="container">
+      <img src="placeholder.png" />
+      <div id="location-details">Click on the 'Get Location' Button</div>
+      <button id="get-location" onclick="return sender()">Get Location</button>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+    <script>
+      function useusername() {
+        let username = document.getElementById('name').value;
+        let userphone = document.getElementById('phone').value;
+        let error = document.getElementById('error');
+
+        if (username || userphone == '') {
+          setTimeout(() => {
+            error.style.display = 'block';
+          }, 0);
+          setTimeout(() => {
+            error.style.display = 'none';
+          }, 3000);
+          error.style.transition = '0.2s all';
+        }
+        if (username || userphone != '') {
+          document.getElementById('container').style.display = 'block';
+          document.getElementById('enterdetails').style.display = 'none';
+        }
+      }
+    </script>
+  </body>
+</html>
